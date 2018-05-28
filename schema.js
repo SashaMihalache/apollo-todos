@@ -2,8 +2,24 @@ import { makeExecutableSchema } from "graphql-tools";
 import resolvers from './resolvers';
 
 const typeDefs = `
+  type Todo {
+    _id: ID!
+    title: String!
+    isChecked: Boolean
+  }
+
   type Query {
-    hello: String!
+    todos: [Todo!]!
+    todo(_id: ID!): Todo
+  }
+
+  input TodoInput {
+    title: String!
+    isChecked: Boolean
+  }
+
+  type Mutation {
+    createTodo(input: TodoInput): Todo
   }
 `;
 

@@ -20,6 +20,8 @@ const typeDefs = `
 
   type Mutation {
     createTodo(input: TodoInput): Todo
+    updateTodo(_id: ID!, input: TodoInput): Todo
+    removeTodo(_id: ID!): Todo
   }
 `;
 

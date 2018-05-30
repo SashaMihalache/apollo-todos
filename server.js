@@ -6,16 +6,22 @@ import schema from './schema';
 const PORT = 3000;
 const app = express();
 
-mongoose.connect('mongodb://localhost/todographql', (err) => {
-  if(err) throw err;
-  console.log('Connected to mongodb');
-})
+mongoose.connect(
+  'mongodb://localhost/todographql',
+  err => {
+    if (err) throw err;
+    console.log('Connected to mongodb');
+  }
+);
 
-app.use('/graphql', graphqlHTTP({
-  schema,
-  graphiql: true
-}))
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema,
+    graphiql: true,
+  })
+);
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`);
-})
+});

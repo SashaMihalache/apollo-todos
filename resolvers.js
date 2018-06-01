@@ -9,7 +9,7 @@ const resolvers = {
     async todos() {
       const todos = await Todo.find();
       return todos;
-    }
+    },
   },
   Mutation: {
     async createTodo(parent, { input }) {
@@ -17,18 +17,14 @@ const resolvers = {
       return todo;
     },
     async updateTodo(parent, { _id, input }) {
-      const todo = await Todo.findOneAndUpdate(
-        { _id },
-        input,
-        { new : true }
-      );
+      const todo = await Todo.findOneAndUpdate({ _id }, input, { new: true });
       return todo;
     },
     async removeTodo(parent, { _id }) {
       const todo = await Todo.findByIdAndRemove({ _id });
       return todo;
-    }
-  }
-}
+    },
+  },
+};
 
 export default resolvers;

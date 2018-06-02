@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Todo.scss';
 
 const Todo = ({ title, isChecked }) => (
-  <div>
-    <p>{title}</p>
-    <p>{isChecked}</p>
+  <div className="todo">
+    <p className="title">{title}</p>
+    <input type="checkbox" className="checked" checked={isChecked} disabled />
   </div>
 );
 

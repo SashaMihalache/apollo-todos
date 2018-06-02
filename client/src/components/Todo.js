@@ -7,7 +7,7 @@ class Todo extends React.Component {
     router: PropTypes.object,
   };
 
-  goTo = () => this.context.router.history.push(`/todos/${this.props._id}`);
+  goTo = () => this.context.router.history.push(`/todos/view/${this.props._id}`);
 
   render() {
     const { title, isChecked } = this.props;

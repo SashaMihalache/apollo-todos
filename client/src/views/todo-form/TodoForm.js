@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import { GET_TODO } from '../../graphql/queries';
-import './SingleTodoView.scss';
+import './TodoForm.scss';
 
-class SingleTodoView extends Component {
+class TodoForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
   };
+
+  renderHeader = () => <h1>{this.props.match.params.todoId ? 'Edit' : 'Add'} Form</h1>;
 
   render() {
     if (this.props.data.loading) {
@@ -21,8 +23,7 @@ class SingleTodoView extends Component {
 
     return (
       <div className="single-todo-form">
-        <h1>Single Todo</h1>
-
+        {this.renderHeader()}
         <form className="single-todo" onSubmit={this.handleSubmit}>
           <div className="title-input">
             Title:
@@ -46,8 +47,9 @@ export default graphql(GET_TODO, {
       id: ownProps.match.params.todoId,
     },
   }),
-})(SingleTodoView);
+})(TodoForm);
 
-SingleTodoView.propTypes = {
+TodoForm.propTypes = {
+  match: PropTypes.object.isRequired,
   data: PropTypes.object.isRequired,
 };

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import TodoView from '../views/todos/TodoView';
-import SingleTodoView from '../views/todo/SingleTodoView';
+import TodoList from '../views/todo-list/TodoList';
+import TodoForm from '../views/todo-form/TodoForm';
+import TodoFormAdd from '../views/todo-form/TodoFormAdd';
 import Navbar from './Navbar';
 import SideBar from './SideBar';
 import Home from '../components/Home';
@@ -19,8 +20,9 @@ class Main extends Component {
 
           <main>
             <Route exact path="/" component={Home} />
-            <Route exact path="/todos" component={TodoView} />
-            <Route path="/todos/:todoId" component={SingleTodoView} />
+            <Route exact path="/todos" component={TodoList} />
+            <Route exact path="/todos/view/:todoId" component={TodoForm} />
+            <Route exact path="/todos/new" component={TodoFormAdd} />
           </main>
         </div>
       </div>

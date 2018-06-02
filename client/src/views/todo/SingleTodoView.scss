@@ -1,0 +1,25 @@
+.single-todo-form {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  
+  .single-todo {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+    
+    .title-input {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    } 
+    
+    .is-checked-input {
+      justify-content: space-between;
+      display: flex;
+      
+    }
+  }
+}

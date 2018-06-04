@@ -9,3 +9,12 @@ export const CREATE_TODO = gql`
     }
   }
 `;
+
+export const DELETE_TODO = gql`
+  mutation DELETE_TODO($id: ID!) {
+    removeTodo(_id: $id) {
+      _id
+      title
+    }
+  }
+`;

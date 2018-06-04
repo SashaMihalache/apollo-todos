@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import PropTypes from 'prop-types';
 import { CREATE_TODO } from '../../graphql/mutations';
+import { GET_TODOS } from '../../graphql/queries';
 import './TodoForm.scss';
 
 class TodoForm extends Component {
@@ -20,9 +21,13 @@ class TodoForm extends Component {
     this.props
       .mutate({
         variables: { title },
+        refetchQueries: [
+          {
+            query: GET_TODOS,
+          },
+        ],
       })
       .then(() => {
-        console.log('intra');
         this.context.router.history.push('/todos');
       });
   };

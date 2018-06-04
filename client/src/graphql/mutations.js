@@ -18,3 +18,13 @@ export const DELETE_TODO = gql`
     }
   }
 `;
+
+export const UPDATE_TODO = gql`
+  mutation UPDATE_TODO($id: ID!, $title: String!, $isChecked: Boolean) {
+    updateTodo(_id: $id, input: { title: $title, isChecked: $isChecked }) {
+      _id
+      title
+      isChecked
+    }
+  }
+`;

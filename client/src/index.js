@@ -10,7 +10,6 @@ import Main from './layout/Main';
 
 const cache = new InMemoryCache({
   dataIdFromObject: object => {
-    console.log(object);
     switch (object.__typename) {
       case 'Todo':
         return object._id; // use `key` as the primary key
